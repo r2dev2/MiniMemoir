@@ -34,6 +34,18 @@
 <Section description={data.socials} light>
   <Socials />
 </Section>
+<!--src="https://github-readme-stats.vercel.app/api/pin/?username=r2dev2&repo=MiniMemoir&show_owner=true&theme=dracula"-->
+
+<Section description={data.production} reverse>
+  <div class="repocard-container">
+    <a title="View source code" href="https://github.com/r2dev2/MiniMemoir">
+      <img
+        src="./repocard.svg"
+        width="{innerWidth * 0.40}"
+        alt="mini memoir repo card" />
+    </a>
+  </div>
+</Section>
 
 <style>
   main {
@@ -64,6 +76,12 @@
 
   img.coding {
     object-fit: cover;
+  }
+
+  .repocard-container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   @media (min-width: 640px) {

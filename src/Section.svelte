@@ -9,7 +9,7 @@
 
   let isVisible = false;
 
-  const cb = entries => entries.forEach(entry => {
+  const visibleObserverCb = entries => entries.forEach(entry => {
     isVisible = entry.isIntersecting;
   });
 
@@ -26,7 +26,7 @@
   }
 
   onMount(() => {
-    const observer = new IntersectionObserver(cb, {
+    const visibleObserver = new IntersectionObserver(visibleObserverCb, {
       threshold: 0.25
     });
 
@@ -34,9 +34,9 @@
       threshold: 0.70
     });
 
-    observer.observe(descriptionDiv);
+    visibleObserver.observe(descriptionDiv);
     autoScrollObserver.observe(embed);
-    return () => [observer, autoScrollObserver].forEach(o => o.disconnect());
+    return () => [visibleObserver, autoScrollObserver].forEach(o => o.disconnect());
   });
 </script>
 

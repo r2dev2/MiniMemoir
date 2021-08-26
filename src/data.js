@@ -7,5 +7,8 @@ export default {
   `,
   socials: `
   I spend a lot of time on YouTube, Discord, and GitHub.
+  `,
+  production: `
+  I made this website from scratch using HTML, JavaScript, and CSS with the Svelte framework. This allowed me greater control over the layout, behavior, and appearance of the mini-memoir than website creaters. I made the website publicly available using GitHub pages and an auto-publish script.
   `
 };
