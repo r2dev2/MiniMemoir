@@ -7,23 +7,28 @@
 
   let embed;
 
-  const cb = entries => entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      setTimeout(() => embed.scrollIntoView(), 500);
-    }
-  });
+  // const cb = entries => entries.forEach(entry => {
+  //   if (entry.isIntersecting) {
+  //     setTimeout(() => embed.scrollIntoView(), 500);
+  //   }
+  // });
 
-  onMount(() => {
-    const options = { threshold: 0.1 };
+  // onMount(() => {
+  //   const options = { threshold: 0.1 };
 
-    const observer = new IntersectionObserver(cb, options);
+  //   const observer = new IntersectionObserver(cb, options);
 
-    observer.observe(embed);
-    return () => observer.disconnect();
-  });
+  //   observer.observe(embed);
+  //   return () => observer.disconnect();
+  // });
 </script>
 
-<div class="section-container full-screen" class:light class:reverse>
+<div
+  class="section-container full-screen"
+  class:light
+  class:reverse
+  on:click={() => embed.scrollIntoView()}>
+
   <div bind:this={embed} class="embed">
     <slot />
   </div>
