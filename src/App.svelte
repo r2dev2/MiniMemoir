@@ -34,10 +34,13 @@
 <Section description={data.socials} light>
   <Socials />
 </Section>
-<!--src="https://github-readme-stats.vercel.app/api/pin/?username=r2dev2&repo=MiniMemoir&show_owner=true&theme=dracula"-->
 
 <Section description={data.production} reverse>
   <div class="repocard-container">
+  <!--
+    Card generated at 
+    https://github-readme-stats.vercel.app/api/pin/?username=r2dev2&repo=MiniMemoir&show_owner=true&theme=dracula
+  -->
     <a title="View source code" href="https://github.com/r2dev2/MiniMemoir">
       <img
         src="./repocard.svg"
