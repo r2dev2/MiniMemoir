@@ -7,32 +7,38 @@
 
   let embed;
 
-  // const cb = entries => entries.forEach(entry => {
-  //   if (entry.isIntersecting) {
-  //     setTimeout(() => embed.scrollIntoView(), 500);
-  //   }
-  // });
+  let isVisible = false;
 
-  // onMount(() => {
-  //   const options = { threshold: 0.1 };
+  const cb = entries => entries.forEach(entry => {
+    isVisible = entry.isIntersecting;
+  });
 
-  //   const observer = new IntersectionObserver(cb, options);
+  const focus = () => {
+    embed.scrollIntoView();
+    isVisible = false;
+    setTimeout(() => isVisible = true);
+  }
 
-  //   observer.observe(embed);
-  //   return () => observer.disconnect();
-  // });
+  onMount(() => {
+    const options = { threshold: 0.25 };
+
+    const observer = new IntersectionObserver(cb, options);
+
+    observer.observe(embed);
+    return () => observer.disconnect();
+  });
 </script>
 
 <div
   class="section-container full-screen"
   class:light
   class:reverse
-  on:click={() => embed.scrollIntoView()}>
+  on:click={focus}>
 
   <div bind:this={embed} class="embed">
     <slot />
   </div>
-  <div class="description">
+  <div class="description" class:full={isVisible}>
     <span>{description}</span>
   </div>
 </div>
@@ -41,8 +47,6 @@
   .section-container {
     display: flex;
     flex-direction: row wrap;
-    height: max-content;
-    width: 100%;
     color: #C5C5C5;
   }
 
@@ -59,7 +63,12 @@
     display: flex;
     align-items: center;
     padding: 2rem;
+    font-size: 0.2rem;
+  }
+
+  .full {
     font-size: 2rem;
+    transition: 0.5s ease-in-out;
   }
 
   .light {
