@@ -25,7 +25,7 @@
   <img
     height="100%"
     width="{innerWidth * 0.50}px"
-    src="/vim-byobu.png"
+    src="./vim-byobu.png"
     alt="my dev setup"
     class="coding" />
 </Section>

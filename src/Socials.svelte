@@ -9,13 +9,13 @@
 
 <div>
   <a title="YouTube" href="https://youtube.com">
-    <img src="/yt.png" alt="YouTube's logo" {height} {width} style="object-fit:cover;" />
+    <img src="./yt.png" alt="YouTube's logo" {height} {width} style="object-fit:cover;" />
   </a>
   <a title="Discord" href="https://discord.com/app">
-    <img src="/discord.png" alt="Discord's logo" {height} {width} />
+    <img src="./discord.png" alt="Discord's logo" {height} {width} />
   </a>
   <a title="My GitHub" href="https://github.com/r2dev2">
-    <img src="/ghub.png" alt="GitHub logo" {height} {width} />
+    <img src="./ghub.png" alt="GitHub logo" {height} {width} />
   </a>
 </div>
 
