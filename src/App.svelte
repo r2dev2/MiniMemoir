@@ -18,7 +18,8 @@
 
 <Section description={data.chess} light>
   <iframe src="https://lichess.org/embed/vUizUuWy?theme=auto&bg=light"
-          width="{innerWidth * 0.40}px" height="100%" frameborder=0></iframe>
+          width="{innerWidth * 0.40}px" height="100%" frameborder=0
+          title="Lichess game embed"></iframe>
 </Section>
 
 <Section description={data.coding} reverse>

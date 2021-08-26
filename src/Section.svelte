@@ -1,11 +1,30 @@
 <script>
+  import { onMount } from 'svelte';
+
   export let description = '';
   export let light = false;
   export let reverse = false;
+
+  let embed;
+
+  const cb = entries => entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => embed.scrollIntoView(), 500);
+    }
+  });
+
+  onMount(() => {
+    const options = { threshold: 0.1 };
+
+    const observer = new IntersectionObserver(cb, options);
+
+    observer.observe(embed);
+    return () => observer.disconnect();
+  });
 </script>
 
 <div class="section-container full-screen" class:light class:reverse>
-  <div class="embed">
+  <div bind:this={embed} class="embed">
     <slot />
   </div>
   <div class="description">
