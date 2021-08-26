@@ -5,12 +5,18 @@
   export let light = false;
   export let reverse = false;
 
-  let embed;
+  let embed, descriptionDiv;
 
   let isVisible = false;
 
   const cb = entries => entries.forEach(entry => {
     isVisible = entry.isIntersecting;
+  });
+
+  const scrollObserverCb = entries => entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      embed.scrollIntoView();
+    }
   });
 
   const focus = () => {
@@ -20,12 +26,17 @@
   }
 
   onMount(() => {
-    const options = { threshold: 0.25 };
+    const observer = new IntersectionObserver(cb, {
+      threshold: 0.25
+    });
 
-    const observer = new IntersectionObserver(cb, options);
+    const autoScrollObserver = new IntersectionObserver(scrollObserverCb, {
+      threshold: 0.70
+    });
 
-    observer.observe(embed);
-    return () => observer.disconnect();
+    observer.observe(descriptionDiv);
+    autoScrollObserver.observe(embed);
+    return () => [observer, autoScrollObserver].forEach(o => o.disconnect());
   });
 </script>
 
@@ -38,7 +49,7 @@
   <div bind:this={embed} class="embed">
     <slot />
   </div>
-  <div class="description" class:full={isVisible}>
+  <div bind:this={descriptionDiv} class="description" class:full={isVisible}>
     <span>{description}</span>
   </div>
 </div>
