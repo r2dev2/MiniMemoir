@@ -59,7 +59,7 @@
 
   .full-height {
     margin: 0;
-    font-size: 45vh;
+    font-size: 40vh;
   }
 
   img.coding {

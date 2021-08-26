@@ -59,6 +59,7 @@
     display: flex;
     flex-direction: row wrap;
     color: #C5C5C5;
+    font-size: 2.5vh;
   }
 
   .reverse {
@@ -74,11 +75,11 @@
     display: flex;
     align-items: center;
     padding: 2rem;
-    font-size: 0.2rem;
+    font-size: 0.2em;
   }
 
   .full {
-    font-size: 2rem;
+    font-size: 2em;
     transition: 0.5s ease-in-out;
   }
 
